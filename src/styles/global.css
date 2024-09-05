@@ -5,6 +5,8 @@
 html {
   overflow-y: scroll;
   color-scheme: light;
+  /* background-color: #41007A !important; */
+  /* background-color: #151B15 !important; */
 }
 
 html.dark {
@@ -23,10 +25,14 @@ body {
   @apply text-black/50 dark:text-white/75;
 }
 
+body.dark {
+  background-color: #151B15 !important;
+}
+
 header {
   @apply fixed top-0 left-0 right-0 z-50 py-5;
   @apply bg-stone-100/75 dark:bg-stone-900/25;
-  @apply backdrop-blur-sm saturate-200;
+  /* @apply backdrop-blur-sm saturate-200; */
 }
 
 main {
