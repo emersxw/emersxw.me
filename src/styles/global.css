@@ -9,6 +9,10 @@ html {
   /* background-color: #151B15 !important; */
 }
 
+* {
+  text-transform: lowercase!important;
+}
+
 html.dark {
   color-scheme: dark;
 }
