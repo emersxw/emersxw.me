@@ -32,8 +32,8 @@ const work = await Promise.all(
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
-    <h4 class="animate font-semibold text-black dark:text-white">
-      hey! i’m emerson <span class="text-xl">👋🏻</span> 
+    <h4 class="animate font-semibold text-black dark:text-white text-3xl">
+      hey! i’m emerson <span class="text-3xl">👋🏻</span> 
     </h4>
     <div class="space-y-16">
       <section>
@@ -46,16 +46,16 @@ const work = await Promise.all(
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
+          <h5 class="font-semibold text-black dark:text-white text-xl">
             posts
           </h5>
           <Link href="/blog">
             all posts
           </Link>
         </div>
-        <ul class="flex flex-col gap-4">
+        <ul class="flex flex-row flex-wrap gap-4">
           {blog.map(post => (
-            <li>
+            <li class="flex-1 min-w-[250px]">
               <ArrowCard entry={post} />
             </li>
           ))}
@@ -64,7 +64,7 @@ const work = await Promise.all(
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
+          <h5 class="font-semibold text-black dark:text-white text-xl">
             work experience
           </h5>
           <Link href="/work">
@@ -94,16 +94,16 @@ const work = await Promise.all(
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
+          <h5 class="font-semibold text-black dark:text-white text-xl">
             projects
           </h5>
           <Link href="/projects">
             all projects
           </Link>
         </div>
-        <ul class="flex flex-col gap-4">
+        <ul class="flex flex-row flex-wrap gap-4">
           {projects.map(project => (
-            <li>
+            <li class="flex-1 min-w-[250px]">
               <ArrowCard entry={project} />
             </li>
           ))}
@@ -111,7 +111,7 @@ const work = await Promise.all(
       </section>
 
       <section class="animate space-y-4">
-        <h5 class="font-semibold text-black dark:text-white">
+        <h5 class="font-semibold text-black dark:text-white text-xl">
           let's connect
         </h5>
         <article>

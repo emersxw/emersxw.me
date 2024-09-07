@@ -1,5 +1,5 @@
 ---
-title: "Having Too Many Choices"
+title: "the hardest part of learning anything new"
 description: "When you’re doing something you rarely see any progress, only when you look back 2, 3 months you realize how much you have done."
 date: "06/06/2020"
 draft: false

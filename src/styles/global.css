@@ -30,6 +30,7 @@ body {
 }
 
 body.dark {
+  /* TODO: this color is not being applied */
   background-color: #151B15 !important;
 }
 
