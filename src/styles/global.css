@@ -1,3 +1,11 @@
+@layer base {
+  html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,8 +13,6 @@
 html {
   overflow-y: scroll;
   color-scheme: light;
-  /* background-color: #41007A !important; */
-  /* background-color: #151B15 !important; */
 }
 
 * {
@@ -25,19 +31,15 @@ body {
 body {
   @apply font-sans antialiased;
   @apply flex flex-col;
-  @apply bg-stone-100 dark:bg-stone-900;
-  @apply text-black/50 dark:text-white/75;
-}
-
-body.dark {
-  /* TODO: this color is not being applied */
-  background-color: #151B15 !important;
+  @apply bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200;
+  letter-spacing: -0.015em;
 }
 
 header {
   @apply fixed top-0 left-0 right-0 z-50 py-5;
-  @apply bg-stone-100/75 dark:bg-stone-900/25;
-  /* @apply backdrop-blur-sm saturate-200; */
+  @apply bg-neutral-50/90 dark:bg-neutral-800/90;
+  @apply backdrop-blur-sm;
+  @apply border-b border-neutral-200 dark:border-neutral-700;
 }
 
 main {
@@ -46,23 +48,24 @@ main {
 
 footer {
   @apply py-5 text-sm;
+  @apply border-t border-neutral-200 dark:border-neutral-700;
 }
 
 article {
-  @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
+  @apply max-w-full prose dark:prose-invert;
   @apply prose-headings:font-semibold prose-p:font-serif;
-  @apply prose-headings:text-black prose-headings:dark:text-white;
+  @apply prose-headings:text-neutral-800 dark:prose-headings:text-neutral-100;
 }
 
 @layer utilities {
   article a {
     @apply font-sans text-current underline underline-offset-2;
-    @apply decoration-black/15 dark:decoration-white/30;
-    @apply transition-colors duration-300 ease-in-out;
+    @apply decoration-neutral-400/30 dark:decoration-neutral-400/30;
+    @apply transition-all duration-300 ease-in-out;
   }
   article a:hover {
-    @apply text-black dark:text-white;
-    @apply decoration-black/25 dark:decoration-white/50;
+    @apply text-neutral-900 dark:text-neutral-100;
+    @apply decoration-neutral-400/50 dark:decoration-neutral-400/50;
   }
 }
 
@@ -81,4 +84,16 @@ html #back-to-top {
 
 html.scrolled #back-to-top {
   @apply opacity-100 pointer-events-auto;
+}
+
+h5 {
+  @apply text-2xl font-medium tracking-tight;
+}
+
+.animate {
+  @apply transition-all duration-300;
+}
+
+a:hover {
+  @apply opacity-70 transition-opacity;
 }

@@ -1,6 +1,6 @@
 ---
 company: "upstart13"
-role: "software engineer"
+role: "senior software engineer"
 dateStart: "11/25/2020"
 dateEnd: "Present"
 ---
