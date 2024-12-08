@@ -12,13 +12,17 @@ import "../styles/typography.css";
 const blog = (await getCollection("blog")) as BlogPost[];
 const filteredBlog = blog
   .filter((post: BlogPost) => !post.data.draft)
-  .sort((a: BlogPost, b: BlogPost) => b.data.date.valueOf() - a.data.date.valueOf())
+  .sort(
+    (a: BlogPost, b: BlogPost) => b.data.date.valueOf() - a.data.date.valueOf()
+  )
   .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
 
 const projects = (await getCollection("projects")) as Project[];
 const filteredProjects = projects
   .filter((project: Project) => !project.data.draft)
-  .sort((a: Project, b: Project) => b.data.date.valueOf() - a.data.date.valueOf())
+  .sort(
+    (a: Project, b: Project) => b.data.date.valueOf() - a.data.date.valueOf()
+  )
   .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
 
 const allwork = (await getCollection("work")) as WorkExperience[];
@@ -43,25 +47,17 @@ const work = await Promise.all(
     <div class="space-y-24">
       <section class="max-w-2xl">
         <article class="space-y-6 text-lg leading-relaxed">
-          <h5 class="animate">
-            hello! i'm a software engineer who loves learning and creating.
-          </h5>
           <p class="animate">
-            I enjoy exploring how technology can make life simpler and more
-            meaningful, whether through coding, design, or thoughtful
-            problem-solving.
+            Hi, I’m Emerson 👻 — a software engineer with over four years of experience working on diverse and exciting projects. I’ve had the privilege of contributing across the stack, from mobile applications to database migrations, backend services, and GraphQL APIs. I’m dedicated to building solutions that are both efficient and reliable while always keeping an open mind to learning and growth.
           </p>
           <p class="animate">
-            I'm fascinated by art, poetry, and movies, and I find inspiration in
-            different cultures and perspectives.
+            Currently, I’m a senior software engineer at Upstart13, collaborating on projects for Luxury Presence. I focus on creating innovative tools that empower real estate professionals and enhance their digital presence.
           </p>
           <p class="animate">
-            I believe there's always more to discover, and I'm grateful for
-            every opportunity to grow and connect with others.
+            I’m driven by curiosity and a passion for exploration—whether it’s diving into new technologies, experimenting with hardware, or refining how we approach software development. I believe in continuously evolving to build better, smarter systems.
           </p>
           <p class="animate">
-            lately, i've been exploring how ai can be used to make software
-            development more efficient and creative.
+            Lately, I’ve been exploring how AI can transform software development, making it more efficient, creative, and impactful. Let’s connect and create something amazing together!
           </p>
         </article>
       </section>
