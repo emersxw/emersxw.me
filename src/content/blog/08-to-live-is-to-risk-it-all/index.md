@@ -5,16 +5,12 @@ date: "08/22/2021"
 draft: false
 ---
 
-Most of the time when doing something, You don’t do your bests, you don’t try as hard as you can, because you actually don’t want to think that you couldn’t do better. It’s comforting to think that you could be in another position if you had given 100% rather than give 100% and fail.
+Life is full of risks, and to truly live, we must be willing to take them. Often, we hold back, afraid to give our all for fear of failure. It's comforting to think that we could have succeeded if only we had tried harder. But this mindset keeps us from reaching our full potential. By avoiding risk, we also avoid the possibility of success.
 
-You’re afraid of success as much as you’re afraid of failure. It’s comfortable to be in the middle, it’s easier to lie to yourself that if you really wanted it you could have it instead of accepting you could not.
+When we commit to giving our best, we open ourselves up to the possibility of both success and failure. It's a vulnerable position, but it's also where growth happens. By embracing risk, we can achieve things we never thought possible. The willingness to take risks is what sets achievers apart from dreamers.
 
-When you compromise yourself to give your best in something you will only accept two results a complete success or a complete failure. What you do though is just stay in the middle, do just what’s enough to not fail but have the possible fake feeling that you could’ve done better.
+Consider pursuing a passion, whether it's starting a business, writing a book, or learning a new skill. The fear of failure can be paralyzing, but by taking the leap and giving it your all, you open yourself up to new opportunities and experiences. Each step forward, no matter how small, brings you closer to your goals and dreams.
 
-If you didn’t do better, you couldn’t have done better.
+### Conclusion
 
-If you didn’t go 100% in a project or in a relationship because you wanted to have a plan B means you spent your time planning for failure. If you want to have a plan B you shouldn’t even have a plan A.
-
-You’re essentially planing for failure.
-
-> "If you don’t go all in you’re just being a coward. To live is to risk it all, otherwise, you’re just an inert chunk of randomly assembled molecules drifting wherever the universe blows you." — Rick Sanchez
+To live is to risk it all. Embrace the uncertainty, take the leap, and give it your all. By doing so, you can live a life full of adventure and fulfillment, free from the regret of "what ifs." Remember, the greatest risk is not taking any risk at all. Life is meant to be lived boldly, so seize the moment and make the most of every opportunity.

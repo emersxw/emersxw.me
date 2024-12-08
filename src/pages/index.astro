@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import type { BlogPost, Project, WorkExperience } from "../types/collections";
 import Container from "@components/Container.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import ArrowCard from "@components/ArrowCard.astro";
@@ -8,26 +9,29 @@ import { dateRange, calculateTimeDifference } from "@lib/utils";
 import { SITE, HOME, SOCIALS } from "@consts";
 import "../styles/typography.css";
 
-const blog = (await getCollection("blog"))
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+const blog = (await getCollection("blog")) as BlogPost[];
+const filteredBlog = blog
+  .filter((post: BlogPost) => !post.data.draft)
+  .sort((a: BlogPost, b: BlogPost) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
 
-const projects = (await getCollection("projects"))
-  .filter((project) => !project.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+const projects = (await getCollection("projects")) as Project[];
+const filteredProjects = projects
+  .filter((project: Project) => !project.data.draft)
+  .sort((a: Project, b: Project) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
 
-const allwork = (await getCollection("work"))
+const allwork = (await getCollection("work")) as WorkExperience[];
+const sortedWork = allwork
   .sort(
-    (a, b) =>
+    (a: WorkExperience, b: WorkExperience) =>
       new Date(b.data.dateStart).valueOf() -
       new Date(a.data.dateStart).valueOf()
   )
   .slice(0, SITE.NUM_WORKS_ON_HOMEPAGE);
 
 const work = await Promise.all(
-  allwork.map(async (item) => {
+  sortedWork.map(async (item: WorkExperience) => {
     const { Content } = await item.render();
     return { ...item, Content };
   })
@@ -71,7 +75,7 @@ const work = await Promise.all(
         </div>
         <ul class="grid grid-cols-1 gap-6">
           {
-            blog.map((post) => (
+            filteredBlog.map((post) => (
               <li>
                 <ArrowCard entry={post} />
               </li>
@@ -89,7 +93,7 @@ const work = await Promise.all(
         </div>
         <ul class="grid grid-cols-1 gap-6">
           {
-            projects.map((project) => (
+            filteredProjects.map((project) => (
               <li>
                 <ArrowCard entry={project} />
               </li>
