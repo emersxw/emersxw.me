@@ -40,6 +40,23 @@ const work = await Promise.all(
     return { ...item, Content };
   })
 );
+
+const seoKeywords = [
+  "software development",
+  "web development",
+  "SQL",
+  "data migrations",
+  "NestJS",
+  "testing",
+  "computer science",
+  "software engineering",
+  "full-stack developer",
+  "JavaScript",
+  "TypeScript",
+  "technical blog"
+];
+
+const seoDescription = "Experienced software developer specializing in full-stack development, SQL data migrations, and web technologies. Writing about software engineering, testing practices, and technical insights.";
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
@@ -48,23 +65,41 @@ const work = await Promise.all(
       <section class="max-w-2xl">
         <article class="space-y-6 text-lg leading-relaxed">
           <p class="animate">
-            Hi, I’m Emerson 👻 — a software engineer with over four years of experience working on diverse and exciting projects. I’ve had the privilege of contributing across the stack, from mobile applications to database migrations, backend services, and GraphQL APIs. I’m dedicated to building solutions that are both efficient and reliable while always keeping an open mind to learning and growth.
+            Hi, I’m Emerson 👻 — a software engineer with over four years of
+            experience working on diverse and exciting projects. I’ve had the
+            privilege of contributing across the stack, from mobile applications
+            to database migrations, backend services, and GraphQL APIs. I’m
+            dedicated to building solutions that are both efficient and reliable
+            while always keeping an open mind to learning and growth.
           </p>
           <p class="animate">
-            Currently, I’m a senior software engineer at Upstart13, collaborating on projects for Luxury Presence. I focus on creating innovative tools that empower real estate professionals and enhance their digital presence.
+            I’m a senior software engineer at Upstart13, collaborating on
+            projects for Luxury Presence. I focus on creating innovative tools
+            that empower real estate professionals and enhance their digital
+            presence.
           </p>
           <p class="animate">
-            I’m driven by curiosity and a passion for exploration—whether it’s diving into new technologies, experimenting with hardware, or refining how we approach software development. I believe in continuously evolving to build better, smarter systems.
+            I’m driven by curiosity and a passion for exploration—whether it’s
+            diving into new technologies, experimenting with hardware, or
+            refining how we approach software development. I believe in
+            continuously evolving to build better, smarter systems.
           </p>
           <p class="animate">
-            Lately, I’ve been exploring how AI can transform software development, making it more efficient, creative, and impactful. Let’s connect and create something amazing together!
+            Lately, I’ve been exploring how AI can transform software
+            development, making it more efficient, creative, and impactful.
+            Let’s connect and create something amazing together!
           </p>
         </article>
       </section>
 
       <section class="animate space-y-8">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5>posts</h5>
+          <div>
+            <h5>posts</h5>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">
+              thoughts and tutorials on software engineering, tech, and life
+            </p>
+          </div>
           <Link href="/blog" class="text-neutral-500 dark:text-neutral-400">
             all posts →
           </Link>
@@ -82,7 +117,12 @@ const work = await Promise.all(
 
       <section class="animate space-y-8">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5>projects</h5>
+          <div>
+            <h5>projects</h5>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">
+              side projects, learnings, and experiments
+            </p>
+          </div>
           <Link href="/projects" class="text-neutral-500 dark:text-neutral-400">
             all projects →
           </Link>
@@ -100,7 +140,12 @@ const work = await Promise.all(
 
       <section class="animate space-y-8">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5>work experience</h5>
+          <div>
+            <h5>work experience</h5>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">
+              my professional journey and roles
+            </p>
+          </div>
           <Link href="/work" class="text-neutral-500 dark:text-neutral-400">
             all work →
           </Link>
@@ -170,3 +215,26 @@ const work = await Promise.all(
     </div>
   </Container>
 </PageLayout>
+
+<html lang="en">
+  <head>
+    <meta name="description" content={seoDescription} />
+    <meta name="keywords" content={seoKeywords.join(", ")} />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Your Name - Software Developer" />
+    <meta property="og:description" content={seoDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Your Name - Software Developer" />
+    <meta name="twitter:description" content={seoDescription} />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Your Name" />
+    <link rel="canonical" href="https://yourwebsite.com" />
+  </head>
+</html>
