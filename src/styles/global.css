@@ -31,15 +31,15 @@ body {
 body {
   @apply font-sans antialiased;
   @apply flex flex-col;
-  @apply bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200;
+  @apply bg-white dark:bg-[#0D0B14] text-neutral-800 dark:text-purple-100;
   letter-spacing: -0.015em;
 }
 
 header {
   @apply fixed top-0 left-0 right-0 z-50 py-5;
-  @apply bg-neutral-50/90 dark:bg-neutral-800/90;
+  @apply bg-white/90 dark:bg-[#0D0B14]/90;
   @apply backdrop-blur-sm;
-  @apply border-b border-neutral-200 dark:border-neutral-700;
+  @apply border-b border-purple-200/20 dark:border-purple-800/20;
 }
 
 main {
@@ -48,13 +48,15 @@ main {
 
 footer {
   @apply py-5 text-sm;
-  @apply border-t border-neutral-200 dark:border-neutral-700;
+  @apply border-t border-purple-200/20 dark:border-purple-800/20;
 }
 
 article {
   @apply max-w-full prose dark:prose-invert;
   @apply prose-headings:font-semibold prose-p:font-serif;
-  @apply prose-headings:text-neutral-800 dark:prose-headings:text-neutral-100;
+  @apply prose-headings:bg-gradient-to-br prose-headings:from-purple-900 prose-headings:to-purple-700 dark:prose-headings:from-purple-200 dark:prose-headings:to-purple-400;
+  @apply prose-headings:bg-clip-text prose-headings:text-transparent;
+  @apply prose-strong:text-purple-900 dark:prose-strong:text-purple-200;
 }
 
 @layer utilities {
@@ -88,6 +90,9 @@ html.scrolled #back-to-top {
 
 h5 {
   @apply text-2xl font-medium tracking-tight;
+  @apply text-purple-900 dark:text-purple-200;
+  @apply bg-gradient-to-br from-purple-900 to-purple-700 dark:from-purple-200 dark:to-purple-400;
+  @apply bg-clip-text text-transparent;
 }
 
 .animate {
@@ -96,4 +101,26 @@ h5 {
 
 a:hover {
   @apply opacity-70 transition-opacity;
+}
+
+/* Add these CSS variables in your :root selector */
+:root {
+  --purple-50: rgb(250 245 255);
+  --purple-100: rgb(243 232 255);
+  --purple-200: rgb(233 213 255);
+  --purple-300: rgb(216 180 254);
+  --purple-400: rgb(192 132 252);
+  --purple-500: rgb(168 85 247);
+  --purple-600: rgb(147 51 234);
+  --purple-700: rgb(126 34 206);
+  --purple-800: rgb(107 33 168);
+  --purple-900: rgb(88 28 135);
+  --purple-950: rgb(59 7 100);
+}
+
+/* Update dark mode colors */
+.dark {
+  --bg-color: #0D0B14; /* Deep purple-black background */
+  --text-color: var(--purple-100);
+  --link-hover: var(--purple-300);
 }
