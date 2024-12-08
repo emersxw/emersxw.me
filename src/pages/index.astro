@@ -6,20 +6,25 @@ import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { dateRange, calculateTimeDifference } from "@lib/utils";
 import { SITE, HOME, SOCIALS } from "@consts";
+import "../styles/typography.css";
 
 const blog = (await getCollection("blog"))
-  .filter(post => !post.data.draft)
+  .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0,SITE.NUM_POSTS_ON_HOMEPAGE);
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
 
 const projects = (await getCollection("projects"))
-  .filter(project => !project.data.draft)
+  .filter((project) => !project.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0,SITE.NUM_PROJECTS_ON_HOMEPAGE);
+  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
 
 const allwork = (await getCollection("work"))
-.sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf())
-.slice(0,SITE.NUM_WORKS_ON_HOMEPAGE);
+  .sort(
+    (a, b) =>
+      new Date(b.data.dateStart).valueOf() -
+      new Date(a.data.dateStart).valueOf()
+  )
+  .slice(0, SITE.NUM_WORKS_ON_HOMEPAGE);
 
 const work = await Promise.all(
   allwork.map(async (item) => {
@@ -27,20 +32,33 @@ const work = await Promise.all(
     return { ...item, Content };
   })
 );
-
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <div class="space-y-24">
       <section class="max-w-2xl">
-        <article class="space-y-6 text-lg">
+        <article class="space-y-6 text-lg leading-relaxed">
+          <h5 class="animate">
+            hello! i'm a software engineer who loves learning and creating.
+          </h5>
           <p class="animate">
-            I love learning and creating.
+            I enjoy exploring how technology can make life simpler and more
+            meaningful, whether through coding, design, or thoughtful
+            problem-solving.
           </p>
-          <p class="animate">I enjoy exploring how technology can make life simpler and more meaningful, whether through coding, design, or thoughtful problem-solving.</p>
-          <p class="animate">I'm fascinated by art, poetry, and movies, and I find inspiration in different cultures and perspectives.</p>
-          <p class="animate">I believe there's always more to discover, and I'm grateful for every opportunity to grow and connect with others.</p>
+          <p class="animate">
+            I'm fascinated by art, poetry, and movies, and I find inspiration in
+            different cultures and perspectives.
+          </p>
+          <p class="animate">
+            I believe there's always more to discover, and I'm grateful for
+            every opportunity to grow and connect with others.
+          </p>
+          <p class="animate">
+            lately, i've been exploring how ai can be used to make software
+            development more efficient and creative.
+          </p>
         </article>
       </section>
 
@@ -51,12 +69,32 @@ const work = await Promise.all(
             all posts →
           </Link>
         </div>
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {blog.map(post => (
-            <li>
-              <ArrowCard entry={post} />
-            </li>
-          ))}
+        <ul class="grid grid-cols-1 gap-6">
+          {
+            blog.map((post) => (
+              <li>
+                <ArrowCard entry={post} />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="animate space-y-8">
+        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+          <h5>projects</h5>
+          <Link href="/projects" class="text-neutral-500 dark:text-neutral-400">
+            all projects →
+          </Link>
+        </div>
+        <ul class="grid grid-cols-1 gap-6">
+          {
+            projects.map((project) => (
+              <li>
+                <ArrowCard entry={project} />
+              </li>
+            ))
+          }
         </ul>
       </section>
 
@@ -68,60 +106,62 @@ const work = await Promise.all(
           </Link>
         </div>
         <ul class="flex flex-col space-y-8">
-          {work.map(entry => (
-            <li class="space-y-2">
-              <div class="text-sm text-neutral-500 dark:text-neutral-400">
-                {dateRange(entry.data.dateStart, entry.data.dateEnd)} 
-                {calculateTimeDifference(entry.data.dateStart, entry.data.dateEnd) && ` • ${calculateTimeDifference(entry.data.dateStart, entry.data.dateEnd)}`}
-              </div>
-              <div class="text-lg font-medium text-neutral-900 dark:text-neutral-100">
-                {entry.data.company}
-              </div>
-              <div class="text-neutral-500 dark:text-neutral-400">
-                {entry.data.role}
-              </div>
-              <article class="prose dark:prose-invert prose-neutral prose-sm">
-                <entry.Content />
-              </article>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-8">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5>projects</h5>
-          <Link href="/projects" class="text-neutral-500 dark:text-neutral-400">
-            all projects →
-          </Link>
-        </div>
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map(project => (
-            <li>
-              <ArrowCard entry={project} />
-            </li>
-          ))}
+          {
+            work.map((entry) => (
+              <li class="space-y-2">
+                <div class="text-sm text-neutral-500 dark:text-neutral-400">
+                  {dateRange(entry.data.dateStart, entry.data.dateEnd)}
+                  {calculateTimeDifference(
+                    entry.data.dateStart,
+                    entry.data.dateEnd
+                  ) &&
+                    ` • ${calculateTimeDifference(entry.data.dateStart, entry.data.dateEnd)}`}
+                </div>
+                <div class="text-lg font-medium leading-snug text-neutral-900 dark:text-neutral-100">
+                  {entry.data.company}
+                </div>
+                <div class="text-neutral-500 dark:text-neutral-400">
+                  {entry.data.role}
+                </div>
+                <article class="prose dark:prose-invert prose-neutral prose-sm">
+                  <entry.Content />
+                </article>
+              </li>
+            ))
+          }
         </ul>
       </section>
 
       <section class="animate space-y-6">
         <h5>let's connect</h5>
-        <article class="text-lg text-neutral-500 dark:text-neutral-400">
+        <article
+          class="text-lg leading-relaxed text-neutral-500 dark:text-neutral-400"
+        >
           <p>
-            if you wanna chat, have a question, or just say hey, feel free to hit me up on social media or drop me an email!
+            if you wanna chat, have a question, or just say hey, feel free to
+            hit me up on social media or drop me an email!
           </p>
         </article>
         <ul class="flex flex-wrap gap-4 text-neutral-500 dark:text-neutral-400">
-          {SOCIALS.map(SOCIAL => (
-            <li class="flex gap-x-2 text-nowrap">
-              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
-                {SOCIAL.NAME}
-              </Link>
-              {"/"}
-            </li>
-          ))}
+          {
+            SOCIALS.map((SOCIAL) => (
+              <li class="flex gap-x-2 text-nowrap">
+                <Link
+                  href={SOCIAL.HREF}
+                  external
+                  aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}
+                >
+                  {SOCIAL.NAME}
+                </Link>
+                {"/"}
+              </li>
+            ))
+          }
           <li class="line-clamp-1">
-            <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`}>
+            <Link
+              href={`mailto:${SITE.EMAIL}`}
+              aria-label={`Email ${SITE.NAME}`}
+            >
               {SITE.EMAIL}
             </Link>
           </li>
