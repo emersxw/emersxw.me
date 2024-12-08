@@ -37,42 +37,42 @@ The prototype was designed to test several key features:
 - Clean, minimalist design focusing on item visuals
 - Quick access to core functionalities
 
-![ClosetMatch Home Screen](./assets/closetmatch1.png)
+![ClosetMatch Home Screen](assets/closetmatch1.png)
 
 ### Communication System 💬
 - Direct messaging capabilities
 - Deal negotiation framework
 - Delivery coordination tools
 
-![Chat Interface](./assets/closetmatch4.png)
+![Chat Interface](assets/closetmatch4.png)
 
 ### Personalization Features 🛠️
 - Preference settings
 - Style matching algorithms
 - Location-based discovery
 
-![Personalization Settings](./assets/closetmatch6.png)
+![Personalization Settings](assets/closetmatch6.png)
 
 ### Trust Building Elements 🌟
 - User verification system
 - Rating framework
 - Transaction history tracking
 
-![User Profile and Ratings](./assets/closetmatch5.png)
+![User Profile and Ratings](assets/closetmatch5.png)
 
 ### Shopping Experience ❤️
 - Wishlist functionality
 - Price tracking system
 - Bookmarking features
 
-![Shopping Interface](./assets/closetmatch3.png)
+![Shopping Interface](assets/closetmatch3.png)
 
 ### Item Management 🛍️
 - Photo upload capability
 - Description templates
 - Seller information display
 
-![Item Details View](./assets/closetmatch2.png)
+![Item Details View](assets/closetmatch2.png)
 
 ## Technical Implementation
 
