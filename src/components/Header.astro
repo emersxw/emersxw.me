@@ -4,10 +4,10 @@ import Link from "@components/Link.astro";
 import { SITE } from "@consts";
 ---
 
-<header>
+<header class="border-b border-purple-200/20 dark:border-purple-800/20">
   <Container>
     <div class="flex flex-wrap gap-y-2 justify-between">
-      <Link href="/" underline={false}>
+      <Link href="/" underline={false} class="text-purple-900 dark:text-purple-100">
         <div class="font-semibold">
           {SITE.NAME}
         </div>

@@ -1,0 +1,14 @@
+.screenshot-container img {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+}
+
+.screenshot-container em {
+    display: block;
+    text-align: center;
+    margin: 1rem 0 2rem;
+    font-style: italic;
+    color: #666;
+} 

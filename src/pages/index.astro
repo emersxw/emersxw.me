@@ -1,127 +1,212 @@
 ---
 import { getCollection } from "astro:content";
+import type { BlogPost, Project, WorkExperience } from "../types/collections";
 import Container from "@components/Container.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { dateRange, calculateTimeDifference } from "@lib/utils";
 import { SITE, HOME, SOCIALS } from "@consts";
+import "../styles/typography.css";
 
-const blog = (await getCollection("blog"))
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0,SITE.NUM_POSTS_ON_HOMEPAGE);
+const blog = (await getCollection("blog")) as BlogPost[];
+const filteredBlog = blog
+  .filter((post: BlogPost) => !post.data.draft)
+  .sort(
+    (a: BlogPost, b: BlogPost) => b.data.date.valueOf() - a.data.date.valueOf()
+  )
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
 
-const projects = (await getCollection("projects"))
-  .filter(project => !project.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0,SITE.NUM_PROJECTS_ON_HOMEPAGE);
+const projects = (await getCollection("projects")) as Project[];
+const filteredProjects = projects
+  .filter((project: Project) => !project.data.draft)
+  .sort(
+    (a: Project, b: Project) => b.data.date.valueOf() - a.data.date.valueOf()
+  )
+  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
 
-const allwork = (await getCollection("work"))
-.sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf())
-.slice(0,SITE.NUM_WORKS_ON_HOMEPAGE);
+const allwork = (await getCollection("work")) as WorkExperience[];
+const sortedWork = allwork
+  .sort(
+    (a: WorkExperience, b: WorkExperience) =>
+      new Date(b.data.dateStart).valueOf() -
+      new Date(a.data.dateStart).valueOf()
+  )
+  .slice(0, SITE.NUM_WORKS_ON_HOMEPAGE);
 
 const work = await Promise.all(
-  allwork.map(async (item) => {
+  sortedWork.map(async (item: WorkExperience) => {
     const { Content } = await item.render();
     return { ...item, Content };
   })
 );
 
+const seoKeywords = [
+  "software development",
+  "web development",
+  "SQL",
+  "data migrations",
+  "NestJS",
+  "testing",
+  "computer science",
+  "software engineering",
+  "full-stack developer",
+  "JavaScript",
+  "TypeScript",
+  "technical blog"
+];
+
+const seoDescription = "Experienced software developer specializing in full-stack development, SQL data migrations, and web technologies. Writing about software engineering, testing practices, and technical insights.";
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <div class="space-y-24">
       <section class="max-w-2xl">
-        <article class="space-y-6 text-lg">
+        <article class="space-y-6 text-lg leading-relaxed">
           <p class="animate">
-            I love learning and creating.
+            Hi, I’m Emerson 👻 — a software engineer with over four years of
+            experience working on diverse and exciting projects. I’ve had the
+            privilege of contributing across the stack, from mobile applications
+            to database migrations, backend services, and GraphQL APIs. I’m
+            dedicated to building solutions that are both efficient and reliable
+            while always keeping an open mind to learning and growth.
           </p>
-          <p class="animate">I enjoy exploring how technology can make life simpler and more meaningful, whether through coding, design, or thoughtful problem-solving.</p>
-          <p class="animate">I'm fascinated by art, poetry, and movies, and I find inspiration in different cultures and perspectives.</p>
-          <p class="animate">I believe there's always more to discover, and I'm grateful for every opportunity to grow and connect with others.</p>
+          <p class="animate">
+            I’m a senior software engineer at Upstart13, collaborating on
+            projects for Luxury Presence. I focus on creating innovative tools
+            that empower real estate professionals and enhance their digital
+            presence.
+          </p>
+          <p class="animate">
+            I’m driven by curiosity and a passion for exploration—whether it’s
+            diving into new technologies, experimenting with hardware, or
+            refining how we approach software development. I believe in
+            continuously evolving to build better, smarter systems.
+          </p>
+          <p class="animate">
+            Lately, I’ve been exploring how AI can transform software
+            development, making it more efficient, creative, and impactful.
+            Let’s connect and create something amazing together!
+          </p>
         </article>
       </section>
 
       <section class="animate space-y-8">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5>posts</h5>
+          <div>
+            <h5>posts</h5>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">
+              thoughts and tutorials on software engineering, tech, and life
+            </p>
+          </div>
           <Link href="/blog" class="text-neutral-500 dark:text-neutral-400">
             all posts →
           </Link>
         </div>
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {blog.map(post => (
-            <li>
-              <ArrowCard entry={post} />
-            </li>
-          ))}
+        <ul class="grid grid-cols-1 gap-6">
+          {
+            filteredBlog.map((post) => (
+              <li>
+                <ArrowCard entry={post} />
+              </li>
+            ))
+          }
         </ul>
       </section>
 
       <section class="animate space-y-8">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5>work experience</h5>
+          <div>
+            <h5>projects</h5>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">
+              side projects, learnings, and experiments
+            </p>
+          </div>
+          <Link href="/projects" class="text-neutral-500 dark:text-neutral-400">
+            all projects →
+          </Link>
+        </div>
+        <ul class="grid grid-cols-1 gap-6">
+          {
+            filteredProjects.map((project) => (
+              <li>
+                <ArrowCard entry={project} />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="animate space-y-8">
+        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+          <div>
+            <h5>work experience</h5>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">
+              my professional journey and roles
+            </p>
+          </div>
           <Link href="/work" class="text-neutral-500 dark:text-neutral-400">
             all work →
           </Link>
         </div>
         <ul class="flex flex-col space-y-8">
-          {work.map(entry => (
-            <li class="space-y-2">
-              <div class="text-sm text-neutral-500 dark:text-neutral-400">
-                {dateRange(entry.data.dateStart, entry.data.dateEnd)} 
-                {calculateTimeDifference(entry.data.dateStart, entry.data.dateEnd) && ` • ${calculateTimeDifference(entry.data.dateStart, entry.data.dateEnd)}`}
-              </div>
-              <div class="text-lg font-medium text-neutral-900 dark:text-neutral-100">
-                {entry.data.company}
-              </div>
-              <div class="text-neutral-500 dark:text-neutral-400">
-                {entry.data.role}
-              </div>
-              <article class="prose dark:prose-invert prose-neutral prose-sm">
-                <entry.Content />
-              </article>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-8">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5>projects</h5>
-          <Link href="/projects" class="text-neutral-500 dark:text-neutral-400">
-            all projects →
-          </Link>
-        </div>
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map(project => (
-            <li>
-              <ArrowCard entry={project} />
-            </li>
-          ))}
+          {
+            work.map((entry) => (
+              <li class="space-y-2">
+                <div class="text-sm text-neutral-500 dark:text-neutral-400">
+                  {dateRange(entry.data.dateStart, entry.data.dateEnd)}
+                  {calculateTimeDifference(
+                    entry.data.dateStart,
+                    entry.data.dateEnd
+                  ) &&
+                    ` • ${calculateTimeDifference(entry.data.dateStart, entry.data.dateEnd)}`}
+                </div>
+                <div class="text-lg font-medium leading-snug text-neutral-900 dark:text-neutral-100">
+                  {entry.data.company}
+                </div>
+                <div class="text-neutral-500 dark:text-neutral-400">
+                  {entry.data.role}
+                </div>
+                <article class="prose dark:prose-invert prose-neutral prose-sm">
+                  <entry.Content />
+                </article>
+              </li>
+            ))
+          }
         </ul>
       </section>
 
       <section class="animate space-y-6">
         <h5>let's connect</h5>
-        <article class="text-lg text-neutral-500 dark:text-neutral-400">
+        <article
+          class="text-lg leading-relaxed text-neutral-500 dark:text-neutral-400"
+        >
           <p>
-            if you wanna chat, have a question, or just say hey, feel free to hit me up on social media or drop me an email!
+            if you wanna chat, have a question, or just say hey, feel free to
+            hit me up on social media or drop me an email!
           </p>
         </article>
         <ul class="flex flex-wrap gap-4 text-neutral-500 dark:text-neutral-400">
-          {SOCIALS.map(SOCIAL => (
-            <li class="flex gap-x-2 text-nowrap">
-              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
-                {SOCIAL.NAME}
-              </Link>
-              {"/"}
-            </li>
-          ))}
+          {
+            SOCIALS.map((SOCIAL) => (
+              <li class="flex gap-x-2 text-nowrap">
+                <Link
+                  href={SOCIAL.HREF}
+                  external
+                  aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}
+                >
+                  {SOCIAL.NAME}
+                </Link>
+                {"/"}
+              </li>
+            ))
+          }
           <li class="line-clamp-1">
-            <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`}>
+            <Link
+              href={`mailto:${SITE.EMAIL}`}
+              aria-label={`Email ${SITE.NAME}`}
+            >
               {SITE.EMAIL}
             </Link>
           </li>
@@ -130,3 +215,26 @@ const work = await Promise.all(
     </div>
   </Container>
 </PageLayout>
+
+<html lang="en">
+  <head>
+    <meta name="description" content={seoDescription} />
+    <meta name="keywords" content={seoKeywords.join(", ")} />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Your Name - Software Developer" />
+    <meta property="og:description" content={seoDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Your Name - Software Developer" />
+    <meta name="twitter:description" content={seoDescription} />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Your Name" />
+    <link rel="canonical" href="https://yourwebsite.com" />
+  </head>
+</html>

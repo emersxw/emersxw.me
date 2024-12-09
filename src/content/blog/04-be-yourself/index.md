@@ -5,16 +5,12 @@ date: "05/18/2020"
 draft: false
 ---
 
-I tend to walk away from authority and hierarchy, usually, that ends badly for me. How I understand the world is somewhat too different from what people around me do. For a long time in my life, I thought that it was authentic.
+The advice to "be yourself" is often given with the best intentions, especially when facing difficult decisions. It's meant to encourage authenticity and self-acceptance. However, this advice can be misleading and even detrimental. It suggests that we are static beings, unchanging and immutable, when in reality, we are constantly evolving. Life is a journey of growth and transformation, and clinging to a fixed identity can hinder our progress.
 
-When I got into trouble because of that, people usually would tell me “Be who you are” or “This is just how you are” sort of like it was part of what I was.
+I used to believe that being true to myself meant resisting change and sticking to my established ways. But this mindset led to stagnation and missed opportunities. It wasn't until I embraced the idea of growth and adaptation that I began to thrive. By allowing myself to change and adapt, I discovered new strengths and capabilities I never knew I had.
 
-Well, now I see this does not make any sense. Thinking like that it damaging you. You cannot see yourself as just a person with predefined actions or thoughts, we’re always changing, evolving.
+Consider a chameleon. Its ability to change color is not a betrayal of its true self but a survival mechanism. Similarly, adapting to new circumstances and challenges is not a betrayal of who we are but a testament to our resilience and capacity for growth. Just as the chameleon thrives by adapting to its environment, we too can thrive by embracing change and seeking new experiences.
 
-I don’t see humans, especially myself this way. Whoever you are, you are not this immutable entity.
+### Conclusion
 
-You just are something at this very moment.
-
-So the next time you hear “just be yourself”, please don’t.
-
-Adapt yourself to the circumstances in order to get what you want.
+In life, it's not about being yourself; it's about becoming the best version of yourself. This requires flexibility, openness to change, and a willingness to step outside your comfort zone. So the next time you hear "just be yourself," remember that growth and adaptation are the keys to success. Embrace the journey of self-discovery and allow yourself to evolve into the person you aspire to be.

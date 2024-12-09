@@ -1,38 +1,38 @@
 import type { Site, Metadata, Socials } from "@types";
 
 export const SITE: Site = {
-  NAME: "emersxw //",
+  NAME: "emersxw.me",
   EMAIL: "hi@emersxw.me",
   NUM_POSTS_ON_HOMEPAGE: 3,
-  NUM_WORKS_ON_HOMEPAGE: 1,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
+  NUM_WORKS_ON_HOMEPAGE: 1,
 };
 
 export const HOME: Metadata = {
-  TITLE: "home",
-  DESCRIPTION: "emersxw // a software engineer.",
+  TITLE: "emerson // senior software engineer",
+  DESCRIPTION: "a software engineer.",
 };
 
 export const BLOG: Metadata = {
   TITLE: "blog",
-  DESCRIPTION: "stuff i write about.",
+  DESCRIPTION: "thoughts and tutorials on software engineering, tech, and life.",
 };
 
 export const WORK: Metadata = {
   TITLE: "work",
-  DESCRIPTION: "companies i've worked at.",
+  DESCRIPTION: "my professional journey and roles.",
 };
 
 export const PROJECTS: Metadata = {
   TITLE: "projects",
-  DESCRIPTION: "things i've built.",
+  DESCRIPTION: "side projects, learnings, and experiments.",
 };
 
 export const SOCIALS: Socials = [
-  // { 
-  //   NAME: "twitter-x",
-  //   HREF: "https://twitter.com/emersxw",
-  // },
+  { 
+    NAME: "x",
+    HREF: "https://x.com/q6b45rjb6p",
+  },
   { 
     NAME: "github",
     HREF: "https://github.com/emersxw"
