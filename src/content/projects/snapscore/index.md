@@ -40,19 +40,19 @@ Through conversations with teammates and coaches, I identified key features that
 
 <div class="screenshot-container">
 
-![Homepage](assets/home.png)
+![Homepage](home.png)
 *The main screen embodies minimalist design principles with two prominent score displays. Large, touch-friendly scoring buttons make it easy to update scores even in intense gameplay moments. The reset and undo controls are strategically placed to prevent accidental activation while remaining easily accessible.*
 
-![Reset Score](assets/reset-score.png)
+![Reset Score](reset-score.png)
 *The reset confirmation modal adds a crucial safety layer to prevent accidental score resets. The clear, concise messaging and prominent cancel option ensure users maintain control over their scoring data while keeping the interaction quick and straightforward.*
 
-![Team Win Screen 1](assets/team-win-1.png)
+![Team Win Screen 1](team-win-1.png)
 *Victory moments come alive with dynamic animations and confetti effects. Team 1's win screen features distinct team colors and prominently displays the final score, creating a satisfying conclusion to each game while maintaining score visibility.*
 
-![Team Win Screen 2](assets/team-win-2.png)
+![Team Win Screen 2](team-win-2.png)
 *The alternate victory screen for Team 2 maintains consistent celebration elements while using team-specific colors. The intuitive "New Game" option allows for quick transitions between matches, perfect for practice sessions with multiple games.*
 
-![Winning Score](assets/winning-score.png)
+![Winning Score](winning-score.png)
 *The winning score configuration screen offers flexibility for different game formats. Users can quickly select common point targets or set custom values, accommodating everything from quick practice games to full-length matches.*
 
 </div>
